@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra A</title>
+    <link rel="stylesheet" href="a.css">
+
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+  
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões para os termos químicos -->
+            <div class="card" onclick="openModal('acidoAcetico')">
+                <div class="card-header">Ácidos</div>
+                <div class="card-body">
+                    <p>Os ácidos são substâncias que liberam íons positivos de hidrogênio ou prótons (cátions) numa solução aquosa.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('acidoAlginico')">
+                <div class="card-header">Ácido Alginico</div>
+                <div class="card-body">
+                    <p>Polissacarídeo obtido de algas marinhas, usado como espessante e estabilizante em alimentos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('acidoAscorbico')">
+                <div class="card-header">Ácido Ascórbico</div>
+                <div class="card-body">
+                    <p>Também conhecido como vitamina C, é um nutriente essencial com propriedades antioxidantes.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('acidoSulfurico')">
+                <div class="card-header">Ácido Sulfúrico</div>
+                <div class="card-body">
+                    <p>Ácido forte e corrosivo com a fórmula H₂SO₄, amplamente usado em processos industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('acidoCloridrico')">
+                <div class="card-header">Ácido Clorídrico</div>
+                <div class="card-body">
+                    <p>Ácido forte e corrosivo com a fórmula HCl, comum na digestão e em processos industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('acidoNitrico')">
+                <div class="card-header">Ácido Nítrico</div>
+                <div class="card-body">
+                    <p>Ácido forte e corrosivo com a fórmula HNO₃, utilizado em fertilizantes e explosivos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcali')">
+                <div class="card-header">Álcalis</div>
+                <div class="card-body">
+                    <p>Termo geral para bases solúveis em água, como hidróxidos de metais alcalinos e alcalinos-terrosos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('aluminio')">
+                <div class="card-header">Alumínio</div>
+                <div class="card-body">
+                    <p>Elemento químico metálico com o símbolo Al, amplamente utilizado na fabricação de ligas e embalagens.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('amonia')">
+                <div class="card-header">Amônia</div>
+                <div class="card-body">
+                    <p>Composto químico com a fórmula NH₃, utilizado em fertilizantes e como refrigerante.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('aceitato')">
+                <div class="card-header">Aceitato</div>
+                <div class="card-body">
+                    <p>Íon ou sal derivado do ácido acético, usado em várias aplicações químicas e industriais.</p>
+                </div>
+            </div>
+
+            <!-- Adicionando os novos termos -->
+            <div class="card" onclick="openModal('alcadienos')">
+                <div class="card-header">Alcadienos</div>
+                <div class="card-body">
+                    <p>Hidrocarbonetos que contêm duas duplas ligações, sendo uma característica dos compostos insaturados.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcalimetria')">
+                <div class="card-header">Alcalimetria</div>
+                <div class="card-body">
+                    <p>Processo de determinação da concentração de ácidos ou bases por meio de titulação com uma base ou ácido de concentração conhecida.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcalinidade')">
+                <div class="card-header">Alcalinidade</div>
+                <div class="card-body">
+                    <p>Capacidade de uma solução aquosa de neutralizar ácidos, geralmente medida em termos de concentração de íons hidróxido.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcanos')">
+                <div class="card-header">Alcanos</div>
+                <div class="card-body">
+                    <p>Hidrocarbonetos saturados, compostos apenas por átomos de carbono e hidrogênio, ligados por ligações simples.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcenos')">
+                <div class="card-header">Alcenos</div>
+                <div class="card-body">
+                    <p>Hidrocarbonetos insaturados com uma dupla ligação entre dois átomos de carbono.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('alcinos')">
+                <div class="card-header">Alcinos</div>
+                <div class="card-body">
+                    <p>Hidrocarbonetos insaturados com uma tripla ligação entre dois átomos de carbono.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('aldeido')">
+                <div class="card-header">Aldeído</div>
+                <div class="card-body">
+                    <p>Compostos orgânicos com um grupo funcional -CHO, onde um átomo de carbono está duplamente ligado a um átomo de oxigênio e a um átomo de hidrogênio.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('aldoxila')">
+                <div class="card-header">Aldoxila</div>
+                <div class="card-body">
+                    <p>Composto químico com o grupo -CHO, sendo um intermediário em reações de oxidação.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('autoionizacao')">
+                <div class="card-header">Autoionização</div>
+                <div class="card-body">
+                    <p>Processo no qual uma substância se ioniza espontaneamente em solução, como acontece com a água, que sofre autoionização para formar íons H⁺ e OH⁻.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'acidoAcetico') {
+                title.innerHTML = "Ácido Acético";
+                description.innerHTML = "Um ácido pode ser descrito como uma substância que libera ou produz íons hidrogênio quando dissolvida em água. As fórmulas dos ácidos contêm um ou mais átomos de hidrogênio e um grupo aniônico.";
+            } else if (termo === 'acidoAlginico') {
+                title.innerHTML = "Ácido Alginico";
+                description.innerHTML = "Polissacarídeo obtido de algas marinhas, usado como espessante e estabilizante em alimentos.";
+            } else if (termo === 'acidoAscorbico') {
+                title.innerHTML = "Ácido Ascórbico";
+                description.innerHTML = "Também conhecido como vitamina C, é um nutriente essencial com propriedades antioxidantes.";
+            } else if (termo === 'acidoSulfurico') {
+                title.innerHTML = "Ácido Sulfúrico";
+                description.innerHTML = "Ácido forte e corrosivo com a fórmula H₂SO₄, amplamente usado em processos industriais.";
+            } else if (termo === 'acidoCloridrico') {
+                title.innerHTML = "Ácido Clorídrico";
+                description.innerHTML = "Ácido forte e corrosivo com a fórmula HCl, comum na digestão e em processos industriais.";
+            } else if (termo === 'acidoNitrico') {
+                title.innerHTML = "Ácido Nítrico";
+                description.innerHTML = "Ácido forte e corrosivo com a fórmula HNO₃, utilizado em fertilizantes e explosivos.";
+            } else if (termo === 'alcali') {
+                title.innerHTML = "Álcalis";
+                description.innerHTML = "Termo geral para bases solúveis em água, como hidróxidos de metais alcalinos e alcalinos-terrosos.";
+            } else if (termo === 'aluminio') {
+                title.innerHTML = "Alumínio";
+                description.innerHTML = "Elemento químico metálico com o símbolo Al, amplamente utilizado na fabricação de ligas e embalagens.";
+            } else if (termo === 'amonia') {
+                title.innerHTML = "Amônia";
+                description.innerHTML = "Composto químico com a fórmula NH₃, utilizado em fertilizantes e como refrigerante.";
+            } else if (termo === 'aceitato') {
+                title.innerHTML = "Aceitato";
+                description.innerHTML = "Íon ou sal derivado do ácido acético, usado em várias aplicações químicas e industriais.";
+            } else if (termo === 'alcadienos') {
+                title.innerHTML = "Alcadienos";
+                description.innerHTML = "Hidrocarbonetos que contêm duas duplas ligações, sendo uma característica dos compostos insaturados.";
+            } else if (termo === 'alcalimetria') {
+                title.innerHTML = "Alcalimetria";
+                description.innerHTML = "Processo de determinação da concentração de ácidos ou bases por meio de titulação com uma base ou ácido de concentração conhecida.";
+            } else if (termo === 'alcalinidade') {
+                title.innerHTML = "Alcalinidade";
+                description.innerHTML = "Capacidade de uma solução aquosa de neutralizar ácidos, geralmente medida em termos de concentração de íons hidróxido.";
+            } else if (termo === 'alcanos') {
+                title.innerHTML = "Alcanos";
+                description.innerHTML = "Hidrocarbonetos saturados, compostos apenas por átomos de carbono e hidrogênio, ligados por ligações simples.";
+            } else if (termo === 'alcenos') {
+                title.innerHTML = "Alcenos";
+                description.innerHTML = "Hidrocarbonetos insaturados com uma dupla ligação entre dois átomos de carbono.";
+            } else if (termo === 'alcinos') {
+                title.innerHTML = "Alcinos";
+                description.innerHTML = "Hidrocarbonetos insaturados com uma tripla ligação entre dois átomos de carbono.";
+            } else if (termo === 'aldeido') {
+                title.innerHTML = "Aldeído";
+                description.innerHTML = "Compostos orgânicos com um grupo funcional -CHO, onde um átomo de carbono está duplamente ligado a um átomo de oxigênio e a um átomo de hidrogênio.";
+            } else if (termo === 'aldoxila') {
+                title.innerHTML = "Aldoxila";
+                description.innerHTML = "Composto químico com o grupo -CHO, sendo um intermediário em reações de oxidação.";
+            } else if (termo === 'autoionizacao') {
+                title.innerHTML = "Autoionização";
+                description.innerHTML = "Processo no qual uma substância se ioniza espontaneamente em solução, como acontece com a água, que sofre autoionização para formar íons H⁺ e OH⁻.";
+            }
+            
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

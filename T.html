@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos -->
+            <div class="card" onclick="openModal('temperatura')">
+                <div class="card-header">Temperatura</div>
+                <div class="card-body">
+                    <p>Medida da energia cinética média das partículas em um corpo.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('teor')">
+                <div class="card-header">Teor</div>
+                <div class="card-body">
+                    <p>Quantificação percentual de um componente em uma substância.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('termoquimica')">
+                <div class="card-header">Termoquímica</div>
+                <div class="card-body">
+                    <p>Estudo das variações de calor durante as reações químicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tioalcoois')">
+                <div class="card-header">Tioálcoois</div>
+                <div class="card-body">
+                    <p>Compostos orgânicos derivados de álcoois, onde o oxigênio é substituído por enxofre.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('titulacao')">
+                <div class="card-header">Titulação</div>
+                <div class="card-body">
+                    <p>Técnica analítica usada para determinar a concentração de uma solução desconhecida.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('titulante')">
+                <div class="card-header">Titulante</div>
+                <div class="card-body">
+                    <p>Solução de concentração conhecida usada para titulação.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('titulometria')">
+                <div class="card-header">Titulometria</div>
+                <div class="card-body">
+                    <p>Método quantitativo que envolve a adição de um reagente para medir a concentração de uma substância.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tolueno')">
+                <div class="card-header">Tolueno</div>
+                <div class="card-body">
+                    <p>Composto orgânico aromático, utilizado como solvente em diversas aplicações industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tornassol')">
+                <div class="card-header">Tornassol</div>
+                <div class="card-body">
+                    <p>Indicador ácido-base utilizado para verificar a acidez ou basicidade de uma solução.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('trialcool')">
+                <div class="card-header">Triálcool</div>
+                <div class="card-body">
+                    <p>Composto orgânico com três grupos hidroxila (-OH) em sua estrutura.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('trimetilcarbinol')">
+                <div class="card-header">Trimetilcarbinol</div>
+                <div class="card-body">
+                    <p>Álcool simples com três grupos metil ligados ao carbono central.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('trinitracao')">
+                <div class="card-header">Trinitração</div>
+                <div class="card-body">
+                    <p>Reação de substituição do hidrogênio por grupos nitro (-NO₂) em compostos aromáticos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('troalcool')">
+                <div class="card-header">Troálcool</div>
+                <div class="card-body">
+                    <p>Álcoois substituídos com grupos químicos diferentes do hidrogênio.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tungstenio')">
+                <div class="card-header">Tungstênio</div>
+                <div class="card-body">
+                    <p>Elemento químico de símbolo W, utilizado em filamentos de lâmpadas e outros dispositivos de alta temperatura.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('turbidimetria')">
+                <div class="card-header">Turbidimetria</div>
+                <div class="card-body">
+                    <p>Técnica para medir a turbidez de uma solução, indicando a presença de partículas em suspensão.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('tutoria')">
+                <div class="card-header">Tutoria</div>
+                <div class="card-body">
+                    <p>Termo usado em contextos educacionais para designar a orientação e acompanhamento de um estudante.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'temperatura') {
+                title.innerHTML = "Temperatura";
+                description.innerHTML = "Medida da energia cinética média das partículas em um corpo.";
+            } else if (termo === 'teor') {
+                title.innerHTML = "Teor";
+                description.innerHTML = "Quantificação percentual de um componente em uma substância.";
+            } else if (termo === 'termoquimica') {
+                title.innerHTML = "Termoquímica";
+                description.innerHTML = "Estudo das variações de calor durante as reações químicas.";
+            } else if (termo === 'tioalcoois') {
+                title.innerHTML = "Tioálcoois";
+                description.innerHTML = "Compostos orgânicos derivados de álcoois, onde o oxigênio é substituído por enxofre.";
+            } else if (termo === 'titulacao') {
+                title.innerHTML = "Titulação";
+                description.innerHTML = "Técnica analítica usada para determinar a concentração de uma solução desconhecida.";
+            } else if (termo === 'titulante') {
+                title.innerHTML = "Titulante";
+                description.innerHTML = "Solução de concentração conhecida usada para titulação.";
+            } else if (termo === 'titulometria') {
+                title.innerHTML = "Titulometria";
+                description.innerHTML = "Método quantitativo que envolve a adição de um reagente para medir a concentração de uma substância.";
+            } else if (termo === 'tolueno') {
+                title.innerHTML = "Tolueno";
+                description.innerHTML = "Composto orgânico aromático, utilizado como solvente em diversas aplicações industriais.";
+            } else if (termo === 'tornassol') {
+                title.innerHTML = "Tornassol";
+                description.innerHTML = "Indicador ácido-base utilizado para verificar a acidez ou basicidade de uma solução.";
+            } else if (termo === 'trialcool') {
+                title.innerHTML = "Triálcool";
+                description.innerHTML = "Composto orgânico com três grupos hidroxila (-OH) em sua estrutura.";
+            } else if (termo === 'trimetilcarbinol') {
+                title.innerHTML = "Trimetilcarbinol";
+                description.innerHTML = "Álcool simples com três grupos metil ligados ao carbono central.";
+            } else if (termo === 'trinitracao') {
+                title.innerHTML = "Trinitração";
+                description.innerHTML = "Reação de substituição do hidrogênio por grupos nitro (-NO₂) em compostos aromáticos.";
+            } else if (termo === 'troalcool') {
+                title.innerHTML = "Troálcool";
+                description.innerHTML = "Álcoois substituídos com grupos químicos diferentes do hidrogênio.";
+            } else if (termo === 'tungstenio') {
+                title.innerHTML = "Tungstênio";
+                description.innerHTML = "Elemento químico de símbolo W, utilizado em filamentos de lâmpadas e outros dispositivos de alta temperatura.";
+            } else if (termo === 'turbidimetria') {
+                title.innerHTML = "Turbidimetria";
+                description.innerHTML = "Técnica para medir a turbidez de uma solução, indicando a presença de partículas em suspensão.";
+            } else if (termo === 'tutoria') {
+                title.innerHTML = "Tutoria";
+                description.innerHTML = "Termo usado em contextos educacionais para designar a orientação e acompanhamento de um estudante.";
+            }
+
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>

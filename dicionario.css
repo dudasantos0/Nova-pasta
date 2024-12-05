@@ -1,0 +1,370 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos básicos para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+    background-color: #000000;
+}
+
+/* Estilos para o cabeçalho */
+.header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-start; /* Alinha os links à esquerda */
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Estilos para a navegação */
+nav {
+    margin-left: 0; /* Garante que a navegação esteja alinhada à esquerda */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #000000;
+    transform: translateY(-2px);
+}
+
+nav a:focus {
+    outline: 2px solid hsl(239, 100%, 18%);
+    outline-offset: 4px;
+}
+
+/* Estilos para o contêiner */
+.container {
+    background-image: linear-gradient(50deg rgb(0, 0, 131), rgb(0, 140, 255));
+    color: #fff;
+    padding: 60px 40px;
+    margin-top: 80px;
+    border-radius: 20px;
+    max-width: 900px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Estilos para o contêiner do alfabeto */
+.alphabet-container {
+    background: linear-gradient(0deg, #001741, #0077ff); /* Gradiente de azul claro para azul escuro */
+    padding: 80px;
+    background-color: #bdffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 700px;
+    position: relative; /* Para garantir que o conteúdo fique alinhado com a imagem */
+    margin-top: 100px; /* Adiciona uma margem para dar espaço para a imagem */
+}
+
+/* Estilos para o título dentro do contêiner */
+.alphabet-container h2 {
+    font-size: 24px;
+    margin: 0;
+    color: #ffffff;
+}
+
+.alphabet-container p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilos para os botões do alfabeto */
+.alphabet-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.alphabet-button {
+    background: #0058ca;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.alphabet-button:hover {
+    background: #2a3846;
+}
+
+.alphabet-button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para a imagem fora da box */
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px; /* Adiciona espaço abaixo da imagem */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px; /* Controla o tamanho da imagem */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para a imagem fora da box */
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px; /* Diminuir o espaço abaixo da imagem */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px; /* Controla o tamanho da imagem */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o contêiner do alfabeto */
+.alphabet-container {
+    padding: 80px;
+    background-color:rgb(0, 34, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 700px;
+    position: relative; /* Para garantir que o conteúdo fique alinhado com a imagem */
+    margin-top: 0; /* Remover a margem superior para deixar mais próxima da imagem */
+}
+/* Estilos para a imagem fora da box */
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px; /* Diminuir o espaço abaixo da imagem */
+    animation: moveImage 3s infinite alternate ease-in-out; /* Aplica a animação na imagem */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px; /* Controla o tamanho da imagem */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Animação de movimento para a imagem */
+@keyframes moveImage {
+    0% {
+        transform: translateX(0); /* Inicia sem movimento */
+    }
+    50% {
+        transform: translateX(10px); /* Move 10px para a direita */
+    }
+    100% {
+        transform: translateX(0); /* Retorna à posição original */
+    }
+}
+
+/* Estilos para o contêiner do alfabeto */
+.alphabet-container {
+    padding: 80px;
+    background-color:rgb(5, 91, 250);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 700px;
+    position: relative; /* Para garantir que o conteúdo fique alinhado com a imagem */
+    margin-top: 0; /* Remover a margem superior para deixar mais próxima da imagem */
+}
+/* Estilos básicos para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+    background-color: #000000;
+}
+
+/* Estilos para o contêiner do alfabeto */
+.alphabet-container {
+    padding: 40px;  /* Diminuir o padding para diminuir o tamanho da box */
+    background-color: rgb(5, 91, 250);  /* Cor de fundo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra para um efeito 3D */
+    text-align: center;
+    max-width: 500px;  /* Diminuir a largura máxima */
+    position: relative;
+    margin-top: 40px;  /* Ajuste o espaço superior */
+}
+
+/* Estilos para o título dentro do contêiner */
+.alphabet-container h2 {
+    font-size: 24px;  /* Tamanho do título */
+    margin: 0;
+    color: #000000;
+}
+
+/* Estilos para os botões do alfabeto */
+.alphabet-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;  /* Ajusta o espaço em torno dos botões */
+}
+
+.alphabet-button {
+    background: #0058ca;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.alphabet-button:hover {
+    background: #2a3846;
+}
+
+.alphabet-button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para a imagem fora da box */
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;  /* Controla o tamanho da imagem */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Estilos para o contêiner do alfabeto */
+.alphabet-container {
+    padding: 30px;  /* Reduzir o padding para diminuir o tamanho vertical */
+    background-color: rgb(6, 27, 145);  /* Cor de fundo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra para um efeito 3D */
+    text-align: center;
+    max-width: 500px;  /* Diminuir a largura máxima */
+    max-height: 400px;  /* Adicionando um limite para a altura */
+    position: relative;
+    margin-top: 40px;  /* Ajuste o espaço superior */
+    overflow-y: auto;  /* Para que a box tenha rolagem se o conteúdo ultrapassar */
+}
+
+/* Estilos para o título dentro do contêiner */
+.alphabet-container h2 {
+    font-size: 24px;  /* Tamanho do título */
+    margin: 0;
+    color: #000000;
+}
+
+/* Estilos para os botões do alfabeto */
+.alphabet-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;  /* Ajusta o espaço em torno dos botões */
+}
+
+.alphabet-button {
+    background: #000000;
+    border: none;
+    color: white;
+    padding: 8px 12px;  /* Ajuste no padding dos botões para acompanhar a redução de tamanho */
+    font-size: 14px;  /* Ajuste o tamanho da fonte dos botões */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.alphabet-button:hover {
+    background: #2a3846;
+}
+
+.alphabet-button:active {
+    transform: scale(0.95);
+}
+
+/* Estilos para a imagem fora da box */
+.image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;  /* Controla o tamanho da imagem */
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,290 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font: 1em/1 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 1em 5%;
+    background: rgb(0, 0, 0);
+}
+
+h1 {
+    margin: 1em 0;
+    font-size: calc(3vw + 2rem);
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -.05em;
+}
+
+:root {
+    --bg-preto: rgb(0, 0, 0);
+    --nao-metal: rgb(0, 34, 255);
+    --gas-nobre: rgb(100, 180, 225);
+    --metal-alcalino: rgb(42, 238, 212);
+    --metal-alcalino-terroso: rgb(189, 182, 248);
+    --semimetal: rgb(110, 200, 190);
+    --halogenio: rgb(170, 225, 255);
+    --outros-metais: rgb(190, 210, 210);
+    --metal-transicao: rgb(136, 250, 240);
+    --lantanideo: rgb(102, 247, 199);
+    --actinidio: rgb(58, 77, 160);
+}
+
+/* FOREGROUND COLOR VARIABLES */
+.nao-metal {
+    color: var(--nao-metal);
+}
+
+.gas-nobre {
+    color: var(--gas-nobre);
+}
+
+.metal-alcalino {
+    color: var(--metal-alcalino);
+}
+
+.metal-alcalino-terroso {
+    color: var(--metal-alcalino-terroso);
+}
+
+.semimetal {
+    color: var(--semimetal);
+}
+
+.halogenio {
+    color: var(--halogenio);
+}
+
+.outros-metais {
+    color: var(--outros-metais);
+}
+
+.metal-transicao {
+    color: var(--metal-transicao);
+}
+
+.lantanideo {
+    color: var(--lantanideo);
+}
+
+.actinidio {
+    color: var(--actinidio);
+}
+
+/* TYPOGRAPHY STYLES */
+h1 {
+    margin: .5em 0;
+    font-size: calc(3vw + 2rem);
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: -.05em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p:last-child {
+    font-size: .8em;
+}
+
+/* GRID CONTAINER STYLES */
+main {
+    margin: auto;
+    max-width: 45em;
+    display: flex;
+}
+
+#grid-container {
+    flex-grow: 1;
+    min-width: 7em;
+}
+
+.col-hidden {
+    display: none;
+}
+
+/* GRID CELL */
+section {
+    height: 7em;
+    background: var(--bg-preto);
+    border: .125rem solid;
+    border-radius: .25rem;
+    line-height: 1.25;
+    margin-bottom: .5em;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+span {
+    font-size: .75em;
+    position: absolute;
+    top: .3em;
+    left: .5em;
+}
+
+/* FOOTER */
+footer {
+    font-size: .8em;
+    text-align: left;
+    flex-basis: 13.5rem;
+    margin: -.25em 0 0 1em;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 1em;
+}
+
+li {
+    flex-basis: 100%;
+    line-height: 1.25;
+    margin-bottom: 1em;
+}
+
+li:before {
+    content: ' ';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: .125em solid;
+    border-radius: .125rem;
+    margin-right: .5em;
+    position: relative;
+    top: .25em;
+}
+
+@media only screen and (min-width: 80em) {
+    @supports (display: grid) {
+        /* GLOBAL STYLES */
+        body {
+            font-size: .65em;
+            padding: 2em;
+        }
+
+        /* GRID CONTAINER STYLES */
+        main {
+            max-width: 130.5em;
+            display: block;
+        }
+
+        #grid-container {
+            display: grid;
+            grid-template-columns: repeat(18, 7em);
+            grid-gap: .25em;
+        }
+
+        .col-span16 {
+            grid-column: span 16;
+        }
+
+        .col-span10 {
+            grid-column: span 10;
+        }
+
+        .col-span3 {
+            grid-column: span 3;
+        }
+
+        .col-hidden {
+            display: block;
+            visibility: hidden;
+        }
+
+        /* GRID CELL */
+        section {
+            margin: 0;
+        }
+
+        section:hover {
+            transition: .2s;
+            transform: scale(1.5);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* FOOTER */
+        footer {
+            font-size: 1em;
+            width: 100%;
+            margin: 2em 0;
+        }
+
+        ul {
+            justify-content: center;
+        }
+
+        li {
+            flex-basis: auto;
+            margin-bottom: 0;
+        }
+
+        li + li {
+            margin-left: 2em;
+        }
+    }
+}
+
+@media only screen and (min-width: 102.5em) {
+    /* GLOBAL STYLES */
+    body {
+        font-size: .75em;
+    }
+}
+
+/* Estilo para o botão de voltar */
+#botao-voltar {
+    position: fixed;      /* Fixa o botão na tela */
+    top: 20px;            /* Distância do topo */
+    left: 20px;           /* Distância da borda esquerda */
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white;         /* Cor do texto */
+    padding: 10px 20px;    /* Tamanho do botão */
+    border: none;         /* Remove a borda */
+    border-radius: 5px;   /* Cantos arredondados */
+    font-size: 16px;      /* Tamanho da fonte */
+    cursor: pointer;     /* Aparece como cursor de clique */
+    z-index: 1000;        /* Garante que o botão esteja acima de outros elementos */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+  }
+  
+  #botao-voltar:hover {
+    background-color: #0056b3; /* Tom mais escuro de azul ao passar o mouse */
+  }
+/* Estilo para o botão de voltar */
+#botao-voltar {
+    position: fixed;
+    top: 20px; /* Distância do topo */
+    left: 20px; /* Distância da esquerda */
+    background-color: #000000; /* Cor de fundo preta */
+    color: white; /* Cor do texto */
+    padding: 8px 16px; /* Tamanho reduzido do botão (menor que o anterior) */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Cantos arredondados */
+    font-size: 14px; /* Fonte um pouco menor */
+    cursor: pointer; /* Aparece como cursor de clique */
+    z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+    box-shadow: 0 0 8px #008cff, 0 0 20px #0059ff, 0 0 40px #0000ff, 0 0 80px #0000ff; /* Efeito de brilho azul */
+    transition: all 0.3s ease; /* Transição suave */
+  }
+  
+  #botao-voltar:hover {
+    background-color: #333333; /* Cor de fundo mais escura quando o botão for pressionado */
+    box-shadow: 0 0 12px #0077ff, 0 0 30px #0000ff, 0 0 60px #0000ff, 0 0 120px #0000ff; /* Aumenta o brilho azul ao passar o mouse */
+  }
+  
+  #botao-voltar:active {
+    background-color: #111111; /* Cor de fundo ao clicar */
+    box-shadow: 0 0 8px #00aeff, 0 0 20px #0000ff, 0 0 40px #0000ff, 0 0 80px #0000ff; /* Brilho azul reduzido ao clicar */
+  }
+    

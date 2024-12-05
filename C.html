@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra C</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões para os termos químicos -->
+            <div class="card" onclick="openModal('cadeia')">
+                <div class="card-header">Cadeia</div>
+                <div class="card-body">
+                    <p>Refere-se à estrutura de átomos de carbono ligados entre si em moléculas orgânicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cadinhos')">
+                <div class="card-header">Cadinhos</div>
+                <div class="card-body">
+                    <p>Recipientes de porcelana usados em laboratórios para aquecer ou fundir substâncias.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('calcinação')">
+                <div class="card-header">Calcinação</div>
+                <div class="card-body">
+                    <p>Processo térmico utilizado para decompor substâncias ou extrair metais, geralmente com o uso de calor.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('calcio')">
+                <div class="card-header">Cálcio</div>
+                <div class="card-body">
+                    <p>Elemento químico metálico com o símbolo Ca, essencial para a formação de ossos e dentes em organismos vivos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('carbonatos')">
+                <div class="card-header">Carbonatos</div>
+                <div class="card-body">
+                    <p>Compostos que contêm o íon carbonato (CO₃²⁻), como o carbonato de sódio (Na₂CO₃) e carbonato de cálcio (CaCO₃).</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('carbonila')">
+                <div class="card-header">Carbonila</div>
+                <div class="card-body">
+                    <p>Grupo funcional composto por um átomo de carbono ligado a um átomo de oxigênio, com uma dupla ligação (C=O).</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('carbono')">
+                <div class="card-header">Carbono</div>
+                <div class="card-body">
+                    <p>Elemento químico com o símbolo C, essencial para a vida, formando a base das moléculas orgânicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('catalisador')">
+                <div class="card-header">Catalisador</div>
+                <div class="card-body">
+                    <p>Substância que aumenta a velocidade de uma reação química sem ser consumida no processo.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cetona')">
+                <div class="card-header">Cetona</div>
+                <div class="card-body">
+                    <p>Composto orgânico contendo um grupo funcional carbonila (C=O) ligado a dois átomos de carbono.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('chumbo')">
+                <div class="card-header">Chumbo</div>
+                <div class="card-body">
+                    <p>Elemento químico metálico com o símbolo Pb, usado em baterias e na proteção contra radiação.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cloroformio')">
+                <div class="card-header">Clorofórmio</div>
+                <div class="card-body">
+                    <p>Composto químico utilizado como solvente e anestésico, com a fórmula CHCl₃.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('combustiveis')">
+                <div class="card-header">Combustíveis</div>
+                <div class="card-body">
+                    <p>Substâncias que liberam energia quando reagem com o oxigênio, como gasolina e etanol.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('componente')">
+                <div class="card-header">Componente</div>
+                <div class="card-body">
+                    <p>Parte de uma substância ou mistura, que pode ser um elemento ou composto.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('composto')">
+                <div class="card-header">Composto</div>
+                <div class="card-body">
+                    <p>Substância formada por dois ou mais elementos químicos ligados entre si.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('comprimento')">
+                <div class="card-header">Comprimento</div>
+                <div class="card-body">
+                    <p>Medida de extensão de uma substância ou objeto.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('concentracao')">
+                <div class="card-header">Concentração</div>
+                <div class="card-body">
+                    <p>Quantidade de soluto dissolvido em um determinado volume de solução.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('condutibilidade')">
+                <div class="card-header">Condutibilidade</div>
+                <div class="card-body">
+                    <p>Capacidade de um material conduzir eletricidade.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('condutivimetro')">
+                <div class="card-header">Condutivímetro</div>
+                <div class="card-body">
+                    <p>Instrumento utilizado para medir a condutividade elétrica de soluções.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('corrosao')">
+                <div class="card-header">Corrosão</div>
+                <div class="card-body">
+                    <p>Processo de deterioração de materiais devido a reações químicas com o ambiente.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cristalizacao')">
+                <div class="card-header">Cristalização</div>
+                <div class="card-body">
+                    <p>Processo de formação de cristais a partir de uma solução ou fusão.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cromatografia')">
+                <div class="card-header">Cromatografia</div>
+                <div class="card-body">
+                    <p>Técnica utilizada para separar componentes de uma mistura com base em suas propriedades físico-químicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cromio')">
+                <div class="card-header">Crômio</div>
+                <div class="card-body">
+                    <p>Elemento químico com o símbolo Cr, utilizado em ligas metálicas e na indústria do aço.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cubeta')">
+                <div class="card-header">Cubeta</div>
+                <div class="card-body">
+                    <p>Recipiente utilizado em espectrofotometria para analisar a absorção de luz.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('cultura')">
+                <div class="card-header">Cultura</div>
+                <div class="card-body">
+                    <p>Processo de crescimento e manutenção de organismos vivos, como células ou bactérias, em laboratório.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(term) {
+            const terms = {
+                cadeia: {
+                    title: 'Cadeia',
+                    description: 'Refere-se à estrutura de átomos de carbono ligados entre si em moléculas orgânicas.'
+                },
+                cadinhos: {
+                    title: 'Cadinhos',
+                    description: 'Recipientes de porcelana usados em laboratórios para aquecer ou fundir substâncias.'
+                },
+                calcinação: {
+                    title: 'Calcinação',
+                    description: 'Processo térmico utilizado para decompor substâncias ou extrair metais, geralmente com o uso de calor.'
+                },
+                cálcio: {
+                    title: 'Cálcio',
+                    description: 'Elemento químico metálico com o símbolo Ca, essencial para a formação de ossos e dentes em organismos vivos.'
+                },
+                carbonatos: {
+                    title: 'Carbonatos',
+                    description: 'Compostos que contêm o íon carbonato (CO₃²⁻), como o carbonato de sódio (Na₂CO₃) e carbonato de cálcio (CaCO₃).'
+                },
+                carbonila: {
+                    title: 'Carbonila',
+                    description: 'Grupo funcional composto por um átomo de carbono ligado a um átomo de oxigênio, com uma dupla ligação (C=O).'
+                },
+                carbono: {
+                    title: 'Carbono',
+                    description: 'Elemento químico com o símbolo C, essencial para a vida, formando a base das moléculas orgânicas.'
+                },
+                catalisador: {
+                    title: 'Catalisador',
+                    description: 'Substância que aumenta a velocidade de uma reação química sem ser consumida no processo.'
+                },
+                cetona: {
+                    title: 'Cetona',
+                    description: 'Composto orgânico contendo um grupo funcional carbonila (C=O) ligado a dois átomos de carbono.'
+                },
+                chumbo: {
+                    title: 'Chumbo',
+                    description: 'Elemento químico metálico com o símbolo Pb, usado em baterias e na proteção contra radiação.'
+                },
+                cloroformio: {
+                    title: 'Clorofórmio',
+                    description: 'Composto químico utilizado como solvente e anestésico, com a fórmula CHCl₃.'
+                },
+                combustiveis: {
+                    title: 'Combustíveis',
+                    description: 'Substâncias que liberam energia quando reagem com o oxigênio, como gasolina e etanol.'
+                },
+                componente: {
+                    title: 'Componente',
+                    description: 'Parte de uma substância ou mistura, que pode ser um elemento ou composto.'
+                },
+                composto: {
+                    title: 'Composto',
+                    description: 'Substância formada por dois ou mais elementos químicos ligados entre si.'
+                },
+                comprimento: {
+                    title: 'Comprimento',
+                    description: 'Medida de extensão de uma substância ou objeto.'
+                },
+                concentracao: {
+                    title: 'Concentração',
+                    description: 'Quantidade de soluto dissolvido em um determinado volume de solução.'
+                },
+                condutibilidade: {
+                    title: 'Condutibilidade',
+                    description: 'Capacidade de um material conduzir eletricidade.'
+                },
+                condutivimetro: {
+                    title: 'Condutivímetro',
+                    description: 'Instrumento utilizado para medir a condutividade elétrica de soluções.'
+                },
+                corrosao: {
+                    title: 'Corrosão',
+                    description: 'Processo de deterioração de materiais devido a reações químicas com o ambiente.'
+                },
+                cristalizacao: {
+                    title: 'Cristalização',
+                    description: 'Processo de formação de cristais a partir de uma solução ou fusão.'
+                },
+                cromatografia: {
+                    title: 'Cromatografia',
+                    description: 'Técnica utilizada para separar componentes de uma mistura com base em suas propriedades físico-químicas.'
+                },
+                cromio: {
+                    title: 'Crômio',
+                    description: 'Elemento químico com o símbolo Cr, utilizado em ligas metálicas e na indústria do aço.'
+                },
+                cubeta: {
+                    title: 'Cubeta',
+                    description: 'Recipiente utilizado em espectrofotometria para analisar a absorção de luz.'
+                },
+                cultura: {
+                    title: 'Cultura',
+                    description: 'Processo de crescimento e manutenção de organismos vivos, como células ou bactérias, em laboratório.'
+                }
+            };
+
+            document.getElementById('modalTitle').innerText = terms[term].title;
+            document.getElementById('modalDescription').innerText = terms[term].description;
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

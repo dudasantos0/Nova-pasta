@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com M</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos com M -->
+            <div class="card" onclick="openModal('massa')">
+                <div class="card-header">Massa</div>
+                <div class="card-body">
+                    <p>Quantidade de matéria de um corpo, medida em unidades como gramas ou quilogramas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('metilorange')">
+                <div class="card-header">Metilorange</div>
+                <div class="card-body">
+                    <p>Indicador ácido-base utilizado em titulações, mudando de vermelho para amarelo em diferentes pH.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('mistura')">
+                <div class="card-header">Mistura</div>
+                <div class="card-body">
+                    <p>Combinado de duas ou mais substâncias que não reagem quimicamente, mantendo suas propriedades individuais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('mol')">
+                <div class="card-header">Mol</div>
+                <div class="card-body">
+                    <p>Quantidade de substância que contém o mesmo número de entidades elementares que átomos em 12g de carbono-12.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('molaridade')">
+                <div class="card-header">Molaridade</div>
+                <div class="card-body">
+                    <p>Concentração de uma solução expressa em mols de soluto por litro de solução (mol/L).</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('molecula')">
+                <div class="card-header">Molécula</div>
+                <div class="card-body">
+                    <p>Conjunto de átomos ligados quimicamente, representando a menor unidade de uma substância química.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('mufla')">
+                <div class="card-header">Mufla</div>
+                <div class="card-body">
+                    <p>Equipamento de laboratório usado para aquecer substâncias a altas temperaturas em um ambiente controlado.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'massa') {
+                title.innerHTML = "Massa";
+                description.innerHTML = "Quantidade de matéria de um corpo, medida em unidades como gramas ou quilogramas.";
+            } else if (termo === 'metilorange') {
+                title.innerHTML = "Metilorange";
+                description.innerHTML = "Indicador ácido-base utilizado em titulações, mudando de vermelho para amarelo em diferentes pH.";
+            } else if (termo === 'mistura') {
+                title.innerHTML = "Mistura";
+                description.innerHTML = "Combinado de duas ou mais substâncias que não reagem quimicamente, mantendo suas propriedades individuais.";
+            } else if (termo === 'mol') {
+                title.innerHTML = "Mol";
+                description.innerHTML = "Quantidade de substância que contém o mesmo número de entidades elementares que átomos em 12g de carbono-12.";
+            } else if (termo === 'molaridade') {
+                title.innerHTML = "Molaridade";
+                description.innerHTML = "Concentração de uma solução expressa em mols de soluto por litro de solução (mol/L).";
+            } else if (termo === 'molecula') {
+                title.innerHTML = "Molécula";
+                description.innerHTML = "Conjunto de átomos ligados quimicamente, representando a menor unidade de uma substância química.";
+            } else if (termo === 'mufla') {
+                title.innerHTML = "Mufla";
+                description.innerHTML = "Equipamento de laboratório usado para aquecer substâncias a altas temperaturas em um ambiente controlado.";
+            }
+
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>

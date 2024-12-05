@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra B</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #0046c7, #97dcff); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; /* Para posicionar o botão no canto superior esquerdo */
+        }
+
+        /* Botão de voltar no canto superior esquerdo */
+        .btn-voltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #0046c7;
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px; /* Menor que o tamanho normal */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-voltar:hover {
+            background-color: #0033a0; /* Cor de hover mais escura */
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0042a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0042a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 32, 119); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <button onclick="window.history.back();" class="btn-voltar">Voltar</button>
+
+    <!-- Conteúdo da página -->
+   
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Título do Modal</h2>
+            <p id="modalDescription">Descrição do modal.</p>
+        </div>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra B</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #0046c7, #97dcff); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative; /* Para posicionar o botão no canto superior esquerdo */
+            text-align: center; /* Alinha o texto ao centro */
+        }
+
+        /* Botão de voltar no canto superior esquerdo */
+        .btn-voltar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #0046c7;
+            color: white;
+            padding: 8px 16px;
+            font-size: 14px; /* Menor que o tamanho normal */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-voltar:hover {
+            background-color: #0033a0; /* Cor de hover mais escura */
+        }
+
+        /* Mensagem de texto */
+        .mensagem {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            color: black; /* Cor do texto alterada para preto */
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: fadeInUp 2s ease-out;
+            line-height: 1.6;
+        }
+
+        /* Animação de fade-in e movimento para cima */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Estilo da mensagem */
+        .mensagem span {
+            display: block;
+            font-size: 32px; /* Aumentando o tamanho da fonte da mensagem */
+            color: #000; /* Cor preta */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombras no texto */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão de voltar -->
+    <button onclick="window.history.back();" class="btn-voltar">Voltar</button>
+
+    <!-- Mensagem -->
+    <div class="mensagem">
+        <p>Infelizmente, não existe termos químicos com esta letra.</p>
+        <span>Volte e explore outras letras!</span>
+    </div>
+</body>
+</html>

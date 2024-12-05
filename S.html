@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos -->
+            <div class="card" onclick="openModal('sacarmetros')">
+                <div class="card-header">Sacarímetros</div>
+                <div class="card-body">
+                    <p>Instrumentos utilizados para medir a concentração de açúcares em soluções.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('sacarose')">
+                <div class="card-header">Sacarose</div>
+                <div class="card-body">
+                    <p>Disacarídeo formado por glicose e frutose, comumente conhecido como açúcar.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('sodio')">
+                <div class="card-header">Sódio</div>
+                <div class="card-body">
+                    <p>Elemento químico de símbolo Na, muito utilizado em compostos como o sal de cozinha.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('solido')">
+                <div class="card-header">Sólido</div>
+                <div class="card-body">
+                    <p>Estado da matéria onde as partículas estão muito próximas umas das outras e a forma é fixa.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('solubilidade')">
+                <div class="card-header">Solubilidade</div>
+                <div class="card-body">
+                    <p>Capacidade de uma substância se dissolver em outra, formando uma solução homogênea.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('solucao')">
+                <div class="card-header">Solução</div>
+                <div class="card-body">
+                    <p>Mistura homogênea formada pela dissolução de um soluto em um solvente.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('solutos')">
+                <div class="card-header">Solutos</div>
+                <div class="card-body">
+                    <p>Substâncias que se dissolvem em um solvente, formando uma solução.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('solvente')">
+                <div class="card-header">Solvente</div>
+                <div class="card-body">
+                    <p>Substância que dissolve o soluto, formando uma solução.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('sublimacao')">
+                <div class="card-header">Sublimação</div>
+                <div class="card-body">
+                    <p>Processo em que uma substância passa diretamente do estado sólido para o gasoso.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('substancias')">
+                <div class="card-header">Substâncias</div>
+                <div class="card-body">
+                    <p>Formações de matéria com propriedades características e composição definida.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('surfatantes')">
+                <div class="card-header">Surfatantes</div>
+                <div class="card-body">
+                    <p>Substâncias que reduzem a tensão superficial de um líquido, facilitando a mistura com outros líquidos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('suspensao')">
+                <div class="card-header">Suspensão</div>
+                <div class="card-body">
+                    <p>Mistura heterogênea em que partículas sólidas estão dispersas em um líquido, mas não dissolvidas.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'sacarmetros') {
+                title.innerHTML = "Sacarímetros";
+                description.innerHTML = "Instrumentos utilizados para medir a concentração de açúcares em soluções.";
+            } else if (termo === 'sacarose') {
+                title.innerHTML = "Sacarose";
+                description.innerHTML = "Disacarídeo formado por glicose e frutose, comumente conhecido como açúcar.";
+            } else if (termo === 'sodio') {
+                title.innerHTML = "Sódio";
+                description.innerHTML = "Elemento químico de símbolo Na, muito utilizado em compostos como o sal de cozinha.";
+            } else if (termo === 'solido') {
+                title.innerHTML = "Sólido";
+                description.innerHTML = "Estado da matéria onde as partículas estão muito próximas umas das outras e a forma é fixa.";
+            } else if (termo === 'solubilidade') {
+                title.innerHTML = "Solubilidade";
+                description.innerHTML = "Capacidade de uma substância se dissolver em outra, formando uma solução homogênea.";
+            } else if (termo === 'solucao') {
+                title.innerHTML = "Solução";
+                description.innerHTML = "Mistura homogênea formada pela dissolução de um soluto em um solvente.";
+            } else if (termo === 'solutos') {
+                title.innerHTML = "Solutos";
+                description.innerHTML = "Substâncias que se dissolvem em um solvente, formando uma solução.";
+            } else if (termo === 'solvente') {
+                title.innerHTML = "Solvente";
+                description.innerHTML = "Substância que dissolve o soluto, formando uma solução.";
+            } else if (termo === 'sublimacao') {
+                title.innerHTML = "Sublimação";
+                description.innerHTML = "Processo em que uma substância passa diretamente do estado sólido para o gasoso.";
+            } else if (termo === 'substancias') {
+                title.innerHTML = "Substâncias";
+                description.innerHTML = "Formações de matéria com propriedades características e composição definida.";
+            } else if (termo === 'surfatantes') {
+                title.innerHTML = "Surfatantes";
+                description.innerHTML = "Substâncias que reduzem a tensão superficial de um líquido, facilitando a mistura com outros líquidos.";
+            } else if (termo === 'suspensao') {
+                title.innerHTML = "Suspensão";
+                description.innerHTML = "Mistura heterogênea em que partículas sólidas estão dispersas em um líquido, mas não dissolvidas.";
+            }
+
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>

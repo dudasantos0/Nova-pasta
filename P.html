@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos -->
+            <div class="card" onclick="openModal('pesafiltro')">
+                <div class="card-header">Pesafiltro</div>
+                <div class="card-body">
+                    <p>Dispositivo utilizado para pesar amostras líquidas ou de filtração.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('pipeta')">
+                <div class="card-header">Pipeta</div>
+                <div class="card-body">
+                    <p>Instrumento volumétrico utilizado para medir e transferir pequenos volumes de líquidos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('polarimetria')">
+                <div class="card-header">Polarimetria</div>
+                <div class="card-body">
+                    <p>Técnica analítica usada para medir a rotação de plano de luz polarizada por uma substância.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('potassio')">
+                <div class="card-header">Potássio</div>
+                <div class="card-body">
+                    <p>Elemento químico de símbolo K, utilizado em fertilizantes, detergentes e processos químicos industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('precipitacao')">
+                <div class="card-header">Precipitação</div>
+                <div class="card-body">
+                    <p>Processo químico no qual uma substância se separa de uma solução formando um sólido.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('precipitado')">
+                <div class="card-header">Precipitado</div>
+                <div class="card-body">
+                    <p>Substância sólida que se forma em uma solução como resultado de uma reação química de precipitação.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('pressao')">
+                <div class="card-header">Pressão</div>
+                <div class="card-body">
+                    <p>Força exercida sobre uma área unitária, normalmente medida em atmosferas ou pascal.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('propanona')">
+                <div class="card-header">Propanona</div>
+                <div class="card-body">
+                    <p>Composto químico também conhecido como acetona, utilizado como solvente em muitos processos químicos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('protons')">
+                <div class="card-header">Prótons</div>
+                <div class="card-body">
+                    <p>Partículas subatômicas com carga positiva, encontradas no núcleo dos átomos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('pureza')">
+                <div class="card-header">Pureza</div>
+                <div class="card-body">
+                    <p>Característica de uma substância que está livre de impurezas ou contaminantes.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('purificacao')">
+                <div class="card-header">Purificação</div>
+                <div class="card-body">
+                    <p>Processo de remoção de impurezas de uma substância para torná-la mais pura.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'pesafiltro') {
+                title.innerHTML = "Pesafiltro";
+                description.innerHTML = "Dispositivo utilizado para pesar amostras líquidas ou de filtração.";
+            } else if (termo === 'pipeta') {
+                title.innerHTML = "Pipeta";
+                description.innerHTML = "Instrumento volumétrico utilizado para medir e transferir pequenos volumes de líquidos.";
+            } else if (termo === 'polarimetria') {
+                title.innerHTML = "Polarimetria";
+                description.innerHTML = "Técnica analítica usada para medir a rotação de plano de luz polarizada por uma substância.";
+            } else if (termo === 'potassio') {
+                title.innerHTML = "Potássio";
+                description.innerHTML = "Elemento químico de símbolo K, utilizado em fertilizantes, detergentes e processos químicos industriais.";
+            } else if (termo === 'precipitacao') {
+                title.innerHTML = "Precipitação";
+                description.innerHTML = "Processo químico no qual uma substância se separa de uma solução formando um sólido.";
+            } else if (termo === 'precipitado') {
+                title.innerHTML = "Precipitado";
+                description.innerHTML = "Substância sólida que se forma em uma solução como resultado de uma reação química de precipitação.";
+            } else if (termo === 'pressao') {
+                title.innerHTML = "Pressão";
+                description.innerHTML = "Força exercida sobre uma área unitária, normalmente medida em atmosferas ou pascal.";
+            } else if (termo === 'propanona') {
+                title.innerHTML = "Propanona";
+                description.innerHTML = "Composto químico também conhecido como acetona, utilizado como solvente em muitos processos químicos.";
+            } else if (termo === 'protons') {
+                title.innerHTML = "Prótons";
+                description.innerHTML = "Partículas subatômicas com carga positiva, encontradas no núcleo dos átomos.";
+            } else if (termo === 'pureza') {
+                title.innerHTML = "Pureza";
+                description.innerHTML = "Característica de uma substância que está livre de impurezas ou contaminantes.";
+            } else if (termo === 'purificacao') {
+                title.innerHTML = "Purificação";
+                description.innerHTML = "Processo de remoção de impurezas de uma substância para torná-la mais pura.";
+            }
+
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+
+</html>

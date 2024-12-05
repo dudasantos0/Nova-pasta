@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra D</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos com D -->
+            <div class="card" onclick="openModal('decantacao')">
+                <div class="card-header">Decantação</div>
+                <div class="card-body">
+                    <p>Processo de separação de partículas sólidas suspensas em um líquido, usando a diferença de densidade.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('densidade')">
+                <div class="card-header">Densidade</div>
+                <div class="card-body">
+                    <p>Propriedade física que relaciona a massa e o volume de uma substância, geralmente expressa em g/cm³.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('densimetro')">
+                <div class="card-header">Densímetro</div>
+                <div class="card-body">
+                    <p>Instrumento utilizado para medir a densidade de líquidos, baseado no princípio de Arquimedes.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('dessecador')">
+                <div class="card-header">Dessecador</div>
+                <div class="card-body">
+                    <p>Equipamento utilizado para secar substâncias em ambiente controlado e livre de umidade.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('destilacao')">
+                <div class="card-header">Destilação</div>
+                <div class="card-body">
+                    <p>Processo de separação de componentes de uma mistura com base em seus diferentes pontos de ebulição.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('determinacao')">
+                <div class="card-header">Determinação</div>
+                <div class="card-body">
+                    <p>Processo de medir ou calcular a quantidade de uma substância ou variável em uma amostra.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('digestor')">
+                <div class="card-header">Digestor</div>
+                <div class="card-body">
+                    <p>Equipamento usado para realizar a digestão de substâncias, geralmente utilizado em análises químicas e de compostos orgânicos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('diluicao')">
+                <div class="card-header">Diluição</div>
+                <div class="card-body">
+                    <p>Processo de reduzir a concentração de uma solução, adicionando mais solvente.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'decantacao') {
+                title.innerHTML = "Decantação";
+                description.innerHTML = "Processo de separação de partículas sólidas suspensas em um líquido, usando a diferença de densidade.";
+            } else if (termo === 'densidade') {
+                title.innerHTML = "Densidade";
+                description.innerHTML = "Propriedade física que relaciona a massa e o volume de uma substância, geralmente expressa em g/cm³.";
+            } else if (termo === 'densimetro') {
+                title.innerHTML = "Densímetro";
+                description.innerHTML = "Instrumento utilizado para medir a densidade de líquidos, baseado no princípio de Arquimedes.";
+            } else if (termo === 'dessecador') {
+                title.innerHTML = "Dessecador";
+                description.innerHTML = "Equipamento utilizado para secar substâncias em ambiente controlado e livre de umidade.";
+            } else if (termo === 'destilacao') {
+                title.innerHTML = "Destilação";
+                description.innerHTML = "Processo de separação de componentes de uma mistura com base em seus diferentes pontos de ebulição.";
+            } else if (termo === 'determinacao') {
+                title.innerHTML = "Determinação";
+                description.innerHTML = "Processo de medir ou calcular a quantidade de uma substância ou variável em uma amostra.";
+            } else if (termo === 'digestor') {
+                title.innerHTML = "Digestor";
+                description.innerHTML = "Equipamento usado para realizar a digestão de substâncias, geralmente utilizado em análises químicas e de compostos orgânicos.";
+            } else if (termo === 'diluicao') {
+                title.innerHTML = "Diluição";
+                description.innerHTML = "Processo de reduzir a concentração de uma solução, adicionando mais solvente.";
+            }
+            
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

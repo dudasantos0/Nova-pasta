@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra E</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos com E -->
+            <div class="card" onclick="openModal('ebulicao')">
+                <div class="card-header">Ebulição</div>
+                <div class="card-body">
+                    <p>Processo de transformação de um líquido em gás quando atingido seu ponto de ebulição.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('elemento')">
+                <div class="card-header">Elemento</div>
+                <div class="card-body">
+                    <p>Substância pura que não pode ser decomposta em outras mais simples por reações químicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eletrodo')">
+                <div class="card-header">Eletrodo</div>
+                <div class="card-body">
+                    <p>Conduíte utilizado para a passagem de corrente elétrica em um circuito eletroquímico.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eletrosfera')">
+                <div class="card-header">Eletrosfera</div>
+                <div class="card-body">
+                    <p>Região em torno do núcleo de um átomo onde se encontram os elétrons.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('entalpia')">
+                <div class="card-header">Entalpia</div>
+                <div class="card-body">
+                    <p>Função de estado que descreve a quantidade de energia interna de um sistema termodinâmico.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('entropia')">
+                <div class="card-header">Entropia</div>
+                <div class="card-body">
+                    <p>Medida da desordem ou aleatoriedade em um sistema termodinâmico.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('equilibrio')">
+                <div class="card-header">Equilíbrio</div>
+                <div class="card-body">
+                    <p>Estado de um sistema no qual as reações químicas ocorrem na mesma taxa para os dois sentidos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eritrosina')">
+                <div class="card-header">Eritrosina</div>
+                <div class="card-body">
+                    <p>Corante sintético usado em indústrias alimentícias e farmacêuticas, também conhecido como vermelho 28.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('erlenmeyer')">
+                <div class="card-header">Erlenmeyer</div>
+                <div class="card-body">
+                    <p>Frasco de laboratório com base larga e pescoço estreito, utilizado para misturar soluções e realizar reações.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('escoamento')">
+                <div class="card-header">Escoamento</div>
+                <div class="card-body">
+                    <p>Movimento de um fluido em resposta a uma pressão ou força externa.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('esfregaco')">
+                <div class="card-header">Esfregaço</div>
+                <div class="card-body">
+                    <p>Preparação de uma lâmina com uma amostra para exame microscópico, geralmente usada em microbiologia.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('espectrofotometro')">
+                <div class="card-header">Espectrofotômetro</div>
+                <div class="card-body">
+                    <p>Instrumento utilizado para medir a intensidade de luz em diferentes comprimentos de onda.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('ester')">
+                <div class="card-header">Éster</div>
+                <div class="card-body">
+                    <p>Composto orgânico derivado de um ácido e um álcool, comumente utilizado em fragrâncias e solventes.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('estroncio')">
+                <div class="card-header">Estrôncio</div>
+                <div class="card-body">
+                    <p>Elemento químico com o símbolo Sr, usado em pirotecnia e na fabricação de imãs de terras raras.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('estufa')">
+                <div class="card-header">Estufa</div>
+                <div class="card-body">
+                    <p>Equipamento utilizado para aquecer ou secar substâncias em laboratórios e indústrias.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('etanol')">
+                <div class="card-header">Etanol</div>
+                <div class="card-body">
+                    <p>Álcool utilizado como solvente, combustível e em produtos farmacêuticos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eter')">
+                <div class="card-header">Éter</div>
+                <div class="card-body">
+                    <p>Composto orgânico utilizado como solvente e em anestesia, geralmente com a fórmula R-O-R.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('eter_anidro')">
+                <div class="card-header">Éter Anidro</div>
+                <div class="card-body">
+                    <p>Éter sem água, utilizado em reações químicas que exigem ausência de umidade.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('etileno_glicol')">
+                <div class="card-header">Etileno-Glicol (1,2-etanodiol)</div>
+                <div class="card-body">
+                    <p>Composto orgânico utilizado como anticongelante e solvente em diversos processos industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('extracao')">
+                <div class="card-header">Extração</div>
+                <div class="card-body">
+                    <p>Processo de separar substâncias de uma mistura com o auxílio de solventes.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'ebulicao') {
+                title.innerHTML = "Ebulição";
+                description.innerHTML = "Processo de transformação de um líquido em gás quando atingido seu ponto de ebulição.";
+            } else if (termo === 'elemento') {
+                title.innerHTML = "Elemento";
+                description.innerHTML = "Substância pura que não pode ser decomposta em outras mais simples por reações químicas.";
+            } else if (termo === 'eletrodo') {
+                title.innerHTML = "Eletrodo";
+                description.innerHTML = "Conduíte utilizado para a passagem de corrente elétrica em um circuito eletroquímico.";
+            } else if (termo === 'eletrosfera') {
+                title.innerHTML = "Eletrosfera";
+                description.innerHTML = "Região em torno do núcleo de um átomo onde se encontram os elétrons.";
+            } else if (termo === 'entalpia') {
+                title.innerHTML = "Entalpia";
+                description.innerHTML = "Função de estado que descreve a quantidade de energia interna de um sistema termodinâmico.";
+            } else if (termo === 'entropia') {
+                title.innerHTML = "Entropia";
+                description.innerHTML = "Medida da desordem ou aleatoriedade em um sistema termodinâmico.";
+            } else if (termo === 'equilibrio') {
+                title.innerHTML = "Equilíbrio";
+                description.innerHTML = "Estado de um sistema no qual as reações químicas ocorrem na mesma taxa para os dois sentidos.";
+            } else if (termo === 'eritrosina') {
+                title.innerHTML = "Eritrosina";
+                description.innerHTML = "Corante sintético usado em indústrias alimentícias e farmacêuticas, também conhecido como vermelho 28.";
+            } else if (termo === 'erlenmeyer') {
+                title.innerHTML = "Erlenmeyer";
+                description.innerHTML = "Frasco de laboratório com base larga e pescoço estreito, utilizado para misturar soluções e realizar reações.";
+            } else if (termo === 'escoamento') {
+                title.innerHTML = "Escoamento";
+                description.innerHTML = "Movimento de um fluido em resposta a uma pressão ou força externa.";
+            } else if (termo === 'esfregaco') {
+                title.innerHTML = "Esfregaço";
+                description.innerHTML = "Preparação de uma lâmina com uma amostra para exame microscópico, geralmente usada em microbiologia.";
+            } else if (termo === 'espectrofotometro') {
+                title.innerHTML = "Espectrofotômetro";
+                description.innerHTML = "Instrumento utilizado para medir a intensidade de luz em diferentes comprimentos de onda.";
+            } else if (termo === 'ester') {
+                title.innerHTML = "Éster";
+                description.innerHTML = "Composto orgânico derivado de um ácido e um álcool, comumente utilizado em fragrâncias e solventes.";
+            } else if (termo === 'estroncio') {
+                title.innerHTML = "Estrôncio";
+                description.innerHTML = "Elemento químico com o símbolo Sr, usado em pirotecnia e na fabricação de imãs de terras raras.";
+            } else if (termo === 'estufa') {
+                title.innerHTML = "Estufa";
+                description.innerHTML = "Equipamento utilizado para aquecer ou secar substâncias em laboratórios e indústrias.";
+            } else if (termo === 'etanol') {
+                title.innerHTML = "Etanol";
+                description.innerHTML = "Álcool utilizado como solvente, combustível e em produtos farmacêuticos.";
+            } else if (termo === 'eter') {
+                title.innerHTML = "Éter";
+                description.innerHTML = "Composto orgânico utilizado como solvente e em anestesia, geralmente com a fórmula R-O-R.";
+            } else if (termo === 'eter_anidro') {
+                title.innerHTML = "Éter Anidro";
+                description.innerHTML = "Éter sem água, utilizado em reações químicas que exigem ausência de umidade.";
+            } else if (termo === 'etileno_glicol') {
+                title.innerHTML = "Etileno-Glicol (1,2-etanodiol)";
+                description.innerHTML = "Composto orgânico utilizado como anticongelante e solvente em diversos processos industriais.";
+            } else if (termo === 'extracao') {
+                title.innerHTML = "Extração";
+                description.innerHTML = "Processo de separar substâncias de uma mistura com o auxílio de solventes.";
+            }
+            
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</body>
+</html>

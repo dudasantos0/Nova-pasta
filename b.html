@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com a Letra B</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.history.back()">Voltar</button>
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos -->
+            <div class="card" onclick="openModal('balanca')">
+                <div class="card-header">Balança de Precisão</div>
+                <div class="card-body">
+                    <p>A balança de precisão permite determinar a massa de alguns poucos miligramas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bario')">
+                <div class="card-header">Bário</div>
+                <div class="card-body">
+                    <p>Elemento químico com o símbolo Ba, utilizado em várias aplicações industriais e laboratoriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bume')">
+                <div class="card-header">Baumé</div>
+                <div class="card-body">
+                    <p>Escala de medição usada para expressar a densidade de líquidos, frequentemente aplicada em soluções industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bequer')">
+                <div class="card-header">Béquer</div>
+                <div class="card-body">
+                    <p>Utensílio de laboratório utilizado para medir e transferir líquidos e realizar experimentos químicos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bicarbonatos')">
+                <div class="card-header">Bicarbonatos</div>
+                <div class="card-body">
+                    <p>Íons ou sais derivados do ácido carbônico, como o bicarbonato de sódio (NaHCO₃), usados em várias reações químicas.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('boro')">
+                <div class="card-header">Boro</div>
+                <div class="card-body">
+                    <p>Elemento químico com o símbolo B, utilizado na fabricação de vidros e cerâmicas e em processos industriais.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('brix')">
+                <div class="card-header">Brix</div>
+                <div class="card-body">
+                    <p>Escala usada para medir a concentração de açúcares em soluções líquidas, especialmente em sucos e xaropes.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bromato')">
+                <div class="card-header">Bromato</div>
+                <div class="card-body">
+                    <p>Composto químico contendo o ânion BrO₃⁻, usado em processos industriais e como agente oxidante.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('brometo')">
+                <div class="card-header">Brometo</div>
+                <div class="card-body">
+                    <p>Composto químico onde o bromo está combinado com outro elemento ou radical, formando o ânion Br⁻.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('bureta')">
+                <div class="card-header">Bureta</div>
+                <div class="card-body">
+                    <p>Instrumento de vidro utilizado em laboratórios para medir e dispensar líquidos com alta precisão.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('butanamida')">
+                <div class="card-header">Butanamida</div>
+                <div class="card-body">
+                    <p>Composto orgânico utilizado em reações químicas, derivado do ácido butanoico.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'balanca') {
+                title.innerHTML = "Balança de Precisão";
+                description.innerHTML = "A balança de precisão permite determinar a massa de alguns poucos miligramas.";
+            } else if (termo === 'bario') {
+                title.innerHTML = "Bário";
+                description.innerHTML = "Elemento químico com o símbolo Ba, utilizado em várias aplicações industriais e laboratoriais.";
+            } else if (termo === 'bume') {
+                title.innerHTML = "Baumé";
+                description.innerHTML = "Escala de medição usada para expressar a densidade de líquidos, frequentemente aplicada em soluções industriais.";
+            } else if (termo === 'bequer') {
+                title.innerHTML = "Béquer";
+                description.innerHTML = "Utensílio de laboratório utilizado para medir e transferir líquidos e realizar experimentos químicos.";
+            } else if (termo === 'bicarbonatos') {
+                title.innerHTML = "Bicarbonatos";
+                description.innerHTML = "Íons ou sais derivados do ácido carbônico, como o bicarbonato de sódio (NaHCO₃), usados em várias reações químicas.";
+            } else if (termo === 'boro') {
+                title.innerHTML = "Boro";
+                description.innerHTML = "Elemento químico com o símbolo B, utilizado na fabricação de vidros e cerâmicas e em processos industriais.";
+            } else if (termo === 'brix') {
+                title.innerHTML = "Brix";
+                description.innerHTML = "Escala usada para medir a concentração de açúcares em soluções líquidas, especialmente em sucos e xaropes.";
+            } else if (termo === 'bromato') {
+                title.innerHTML = "Bromato";
+                description.innerHTML = "Composto químico contendo o ânion BrO₃⁻, usado em processos industriais e como agente oxidante.";
+            } else if (termo === 'brometo') {
+                title.innerHTML = "Brometo";
+                description.innerHTML = "Composto químico onde o bromo está combinado com outro elemento ou radical, formando o ânion Br⁻.";
+            } else if (termo === 'bureta') {
+                title.innerHTML = "Bureta";
+                description.innerHTML = "Instrumento de vidro utilizado em laboratórios para medir e dispensar líquidos com alta precisão.";
+            } else if (termo === 'butanamida') {
+                title.innerHTML = "Butanamida";
+                description.innerHTML = "Composto orgânico utilizado em reações químicas, derivado do ácido butanoico.";
+            }
+            
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

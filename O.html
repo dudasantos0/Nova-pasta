@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos Químicos com O</title>
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(0deg, #000000, #000000); /* Gradiente de azul claro para azul escuro */
+            color: #333; /* Cor do texto em cinza escuro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Cartões de termos químicos */
+        .card-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Cartão */
+        .card {
+            background: #0429a5; /* Fundo azul claro para o cartão */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgb(41, 132, 218);
+            overflow: hidden;
+            width: 200px;  /* Reduzindo a largura do cartão */
+            height: 160px;  /* Reduzindo a altura do cartão */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            font-weight: bold;  /* Definindo o texto em negrito */
+        }
+
+        /* Efeito de hover nos cartões */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cabeçalho do cartão (Título) */
+        .card-header {
+            background-color: #0429a5; /* Cor de fundo azul médio */
+            color: rgb(225, 233, 255);
+            padding: 15px;
+            font-size: 20px;  /* Ajustando o tamanho da fonte para ser menor */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Corpo do cartão - ocultando o conteúdo */
+        .card-body {
+            display: none;  /* Ocultando o conteúdo do corpo */
+            background-color: #333; /* Fundo mais escuro */
+            color: #ccc;  /* Cor de texto mais clara */
+            padding: 10px;
+            font-size: 14px;  /* Aumentando o tamanho da fonte */
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            transition: opacity 0.5s;
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: rgb(0, 0, 0); /* Cor de fundo cinza para o conteúdo do modal */
+            padding: 25px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 10% auto;
+            box-shadow: 0 4px 8px rgb(0, 26, 255);
+            color: #f8f8f8;
+            font-weight: bold;  /* Texto em negrito no modal */
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Títulos e textos dentro do modal */
+        #modalTitle {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #modalDescription {
+            font-size: 18px; /* Aumentando o tamanho do texto no modal */
+            line-height: 1.6;
+        }
+        /* Estilo para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0px;  /* Movido mais para a esquerda */
+    background-color: #00265f;  /* Azul para o botão */
+    color: white;  /* Texto branco */
+    border: none;
+    padding: 5px 15px;  /* Diminuindo o padding para tornar o botão menor */
+    font-size: 14px;  /* Fonte menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 10;  /* Garante que o botão fique acima de outros elementos */
+}
+
+.back-button:hover {
+    background-color: #003388;  /* Tom mais escuro de azul ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-group">
+            <!-- Cartões de termos químicos com O -->
+            <div class="card" onclick="openModal('oxido')">
+                <div class="card-header">Óxidos</div>
+                <div class="card-body">
+                    <p>Compostos químicos formados pela combinação de um elemento com oxigênio, como óxido de ferro (FeO).</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('ozonio')">
+                <div class="card-header">Ozônio</div>
+                <div class="card-body">
+                    <p>Molécula formada por três átomos de oxigênio (O₃), importante para a proteção contra radiação ultravioleta.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('organo')">
+                <div class="card-header">Organo</div>
+                <div class="card-body">
+                    <p>Referente aos compostos químicos que contêm carbono, como hidrocarbonetos, álcoois, e ácidos carboxílicos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('oxidacao')">
+                <div class="card-header">Oxidação</div>
+                <div class="card-body">
+                    <p>Reação química onde um átomo perde elétrons, geralmente envolvendo a combinação com oxigênio.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('osmose')">
+                <div class="card-header">Osmose</div>
+                <div class="card-body">
+                    <p>Processo de movimentação de solvente através de uma membrana semipermeável, do meio de menor para o maior potencial osmótico.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('organico')">
+                <div class="card-header">Orgânico</div>
+                <div class="card-body">
+                    <p>Compostos que contêm carbono, especialmente os derivados do petróleo e os encontrados nos seres vivos.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('orificio')">
+                <div class="card-header">Orifício</div>
+                <div class="card-body">
+                    <p>Abertura ou pequeno buraco em um recipiente ou material por onde ocorre a passagem de fluidos ou gases.</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('oximetro')">
+                <div class="card-header">Oxímetro</div>
+                <div class="card-body">
+                    <p>Instrumento utilizado para medir a saturação de oxigênio no sangue.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o modal e preencher com as informações do termo
+        function openModal(termo) {
+            var modal = document.getElementById("modal");
+            var title = document.getElementById("modalTitle");
+            var description = document.getElementById("modalDescription");
+
+            // Preenchendo as informações com base no termo
+            if (termo === 'oxido') {
+                title.innerHTML = "Óxidos";
+                description.innerHTML = "Compostos químicos formados pela combinação de um elemento com oxigênio, como óxido de ferro (FeO).";
+            } else if (termo === 'ozonio') {
+                title.innerHTML = "Ozônio";
+                description.innerHTML = "Molécula formada por três átomos de oxigênio (O₃), importante para a proteção contra radiação ultravioleta.";
+            } else if (termo === 'organo') {
+                title.innerHTML = "Organo";
+                description.innerHTML = "Referente aos compostos químicos que contêm carbono, como hidrocarbonetos, álcoois, e ácidos carboxílicos.";
+            } else if (termo === 'oxidacao') {
+                title.innerHTML = "Oxidação";
+                description.innerHTML = "Reação química onde um átomo perde elétrons, geralmente envolvendo a combinação com oxigênio.";
+            } else if (termo === 'osmose') {
+                title.innerHTML = "Osmose";
+                description.innerHTML = "Processo de movimentação de solvente através de uma membrana semipermeável, do meio de menor para o maior potencial osmótico.";
+            } else if (termo === 'organico') {
+                title.innerHTML = "Orgânico";
+                description.innerHTML = "Compostos que contêm carbono, especialmente os derivados do petróleo e os encontrados nos seres vivos.";
+            } else if (termo === 'orificio') {
+                title.innerHTML = "Orifício";
+                description.innerHTML = "Abertura ou pequeno buraco em um recipiente ou material por onde ocorre a passagem de fluidos ou gases.";
+            } else if (termo === 'oximetro') {
+                title.innerHTML = "Oxímetro";
+                description.innerHTML = "Instrumento utilizado para medir a saturação de oxigênio no sangue.";
+            }
+
+            modal.style.display = "block"; // Mostrar o modal
+        }
+
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Fechar o modal quando clicar fora da área do modal
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+<button class="back-button" onclick="window.history.back()">Voltar</button>
+</html>

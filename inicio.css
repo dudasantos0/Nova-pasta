@@ -1,0 +1,310 @@
+/* Estilos básicos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; /* Adiciona padding para evitar sobreposição do header fixo */
+    background-color: #000000;
+}
+
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para o cabeçalho */
+.header {
+    background-color: rgba(8, 8, 8, 0.7); /* Fundo escuro semi-transparente */
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Conteúdo do cabeçalho */
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos para a barra de navegação dentro do cabeçalho */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distribui o espaço entre a barra de pesquisa e os links */
+    align-items: center;
+}
+
+/* Formulário de pesquisa */
+.d-flex {
+    display: flex;
+    gap: 10px; /* Espaço entre o campo de pesquisa e o botão */
+}
+
+/* Estilo do campo de pesquisa */
+.form-control {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo do botão de pesquisa */
+.btn-outline-success {
+    border: 1px solid #28a745;
+    color: #28a745;
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efeito ao passar o mouse sobre o botão de pesquisa */
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Navegação dentro da barra de navegação */
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 0;
+    margin: 0;
+}
+
+/* Links da navegação */
+.navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Efeito ao passar o mouse sobre os links */
+.navbar-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #6a9ce6;
+    transform: translateY(-2px);
+}
+
+/* Efeito ao focar nos links (acessibilidade) */
+.navbar-nav a:focus {
+    outline: 2px solid hsl(239, 81%, 50%);
+    outline-offset: 4px;
+}
+
+/* Estilos para as caixas de informações no canto inferior esquerdo */
+.info-box-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2000;
+}
+
+/* Estilos para cada caixa de informações */
+.info-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Animação de escala ao passar o mouse sobre a caixa */
+.info-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para o título e o texto dentro da caixa */
+.info-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.info-box p {
+    font-size: 1em;
+    line-height: 1.4;
+}
+/* Estilos para as caixas de informações */
+.info-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+/* Estilos para as caixas de informações */
+.info-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;  /* Largura inicial */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s, box-shadow 0.3s;  /* Mudança na largura e sombra */
+}
+
+/* Animação de aumento de comprimento (largura) ao passar o mouse sobre a caixa */
+.info-box:hover {
+    width: 350px;  /* Aumenta a largura quando o mouse passa por cima */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Estilos básicos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000000; /* Fundo preto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Estilo para a imagem do Rick */
+.rick-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.rick-image {
+    max-width: 100%; /* Limita a largura máxima para 100% do tamanho da tela */
+    height: auto;    /* Ajusta automaticamente a altura */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra suave para a imagem */
+}
+
+/* Estilos básicos para a barra de navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Estilos das caixas de informações */
+.info-box-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2000;
+}
+
+.info-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+/* Estilos básicos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #000000; /* Fundo preto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Estilo para a imagem do Rick */
+.rick-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.rick-image {
+    max-width: 100%; /* Limita a largura máxima para 100% do tamanho da tela */
+    height: auto;    /* Ajusta automaticamente a altura */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra suave para a imagem */
+}
+
+/* Estilos para as caixas de informações */
+.info-box-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2000;
+}
+
+/* Estilos para cada caixa de informações */
+.info-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efeito de LED azul ao passar o mouse */
+.info-box:hover {
+    transform: scale(1.05); /* Aumenta a caixa um pouco */
+    box-shadow: 0 0 20px 4px rgba(0, 0, 255, 0.6); /* Efeito de LED azul */
+}
+
+/* Estilos para o título e o texto dentro da caixa */
+.info-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.info-box p {
+    font-size: 1em;
+    line-height: 1.4;
+}
